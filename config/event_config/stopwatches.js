@@ -4,7 +4,8 @@ module.exports = [
         friendlyName: 'test',
         discordResultMessages: [
             {
-                channel: '804019123092848690',
+                channelID: '804019123092848690',
+                channelName: 'challenge-%name%',
                 message: '%name% completed challenge %friendlyName% with a time of %time%'
             }
         ],
