@@ -10,7 +10,8 @@ module.exports = [
             }
         ],
         minecraftResultCommands: [
-            'bc %name% just completed the challenge %friendlyName% with a time of %time%'
+            'bc %name% just completed the challenge %friendlyName% with a time of %time%',
+            'spawn %name%'
         ]
     }
 ]
