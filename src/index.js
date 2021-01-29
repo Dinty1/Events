@@ -7,10 +7,11 @@ discordClient.login(process.env.TOKEN);
 
 //internal imports
 const { StopwatchManager } = require('./classes/challenge-classes');
+const config = require('../config/config')
 
 //register stopwatches
 const stopwatches = require('../config/event_config/stopwatches');
-for(let stopwatch in stopwatches) {
+for (let stopwatch in stopwatches) {
     new StopwatchManager(stopwatches[stopwatch]);
 }
 
@@ -19,10 +20,10 @@ discordClient.on('ready', () => {
 })
 
 discordClient.on('message', async message => {
-    //if (!message.author.bot) return;
+    if (!message.author.bot) return;
+    if (message.channel.id != config.botCommunicationChannel) return;
     let args = message.content.split(' ');
     switch (args[0]) {
-
         case 'stopwatch':
             try {
                 StopwatchManager.getStopwatch(args[1]).instruct(args.slice(2).join(' '), discordClient, message)

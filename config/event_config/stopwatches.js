@@ -1,17 +1,16 @@
 module.exports = [
     {
         id: 'TEST_TIMER',
-        friendlyName: 'test',
+        friendlyName: 'Test Parkour',
         discordResultMessages: [
             {
-                channelID: '804019123092848690',
-                channelName: 'challenge-%name%',
-                message: '%name% completed challenge %friendlyName% with a time of %time%'
+                channelID: '804019022055604285',
+                content: '%name% completed challenge %friendlyName% with a time of %time%'
             }
         ],
         minecraftResultCommands: [
             'bc %name% just completed the challenge %friendlyName% with a time of %time%',
-            'spawn %name%'
+            'spawn %name%',
         ]
     }
 ]
