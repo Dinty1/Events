@@ -3,7 +3,8 @@ class DiscordMessage {
         this.newMessage(discordClient, channelID, content)
     }
     newMessage(discordClient, channelID, content) {
-        discordClient.channels.cache.get(channelID).send(content);
+        let msg = discordClient.channels.cache.get(channelID).send(content);
+        return msg;
     }
 }
 module.exports = DiscordMessage;

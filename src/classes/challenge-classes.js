@@ -1,7 +1,7 @@
 const config = require("../../config/config");
 const DiscordMessage = require('./discord-message');
 const prettyMs = require('pretty-ms')
-const placeholderParse = require('../utilities/parse-placeholders')
+const placeholderParse = require('../utils/parse-placeholders')
 
 class StopwatchManager {
     constructor(options) {
