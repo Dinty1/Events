@@ -6,7 +6,7 @@ require('dotenv').config();
 discordClient.login(process.env.TOKEN);
 
 //internal imports
-const { StopwatchManager } = require('./classes/challenge-classes');
+const { StopwatchManager } = require('./classes/stopwatch-manager');
 const config = require('../config/config')
 
 //register stopwatches
