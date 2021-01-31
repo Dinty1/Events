@@ -1,6 +1,10 @@
 module.exports = [
     //Config for stopwatches, comma separated
     //anything within [] can have more than one value, but don't forget to separate with a comma
+    //you can create multiple stopwatches by copy-pasting the below object
+    //command block configuration:
+    //start: /discord bcast #bot-chat stopwatch <id> start @p
+    //end: /discord bcast #bot-chat stopwatch <id> stop @p
     {
         id: 'TEST_TIMER',//the id that you'll use for all your command blocks
         friendlyName: 'Test Parkour',//friendly name that the challenge is known by
