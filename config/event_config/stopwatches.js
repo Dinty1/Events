@@ -1,5 +1,5 @@
 module.exports = [
-    //Config for stopwatches, comma separated
+    //Config for stopwatches, comma separated 
     //anything within [] can have more than one value, but don't forget to separate with a comma
     //you can create multiple stopwatches by copy-pasting the below object
     //available placeholders (surround with %):
