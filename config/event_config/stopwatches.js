@@ -9,7 +9,7 @@ module.exports = [
     //end: /discord bcast #bot-chat stopwatch <id> stop @p
     {
         id: 'TEST_TIMER',//the id that you'll use for all your command blocks
-        friendlyName: 'Test Parkour',//friendly name that the challenge is known by
+        friendlyName: 'Example Parkour',//friendly name that the challenge is known by
         discordResultMessages: [
             {
                 channelID: '804019022055604285',//the id of the channel to post to. channelName overrides this, but good to have as a backup
@@ -20,6 +20,16 @@ module.exports = [
         minecraftResultCommands: [//minecraft commands to run via the discord console
             'bc %name% just completed the challenge %friendlyName% with a time of %time%',
             'spawn %name%',
+        ],
+        googleSheetNewRows: [//rows to add to the google spreadsheet
+            {
+                sheetName: 'Parkour',//sheet name - case sensitive!
+                row: ['%name%', '%time%']//going across, the cells in the sheet
+            },
+            {
+                sheetName: '%name%',
+                row: ['%friendlyName%', '%time%']
+            }
         ]
     },
   

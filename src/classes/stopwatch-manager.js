@@ -1,7 +1,10 @@
 const config = require("../../config/config");
 const DiscordMessage = require('./discord-message');
 const prettyMs = require('pretty-ms')
-const placeholderParse = require('../utils/parse-placeholders')
+const placeholderParse = require('../utils/parse-placeholders');
+const HttpsRequest = require("./https-request");
+require('dotenv').config()
+
 
 class StopwatchManager {
     constructor(options) {
@@ -46,6 +49,14 @@ class StopwatchManager {
                         console.log(error)
                     }
                 }
+                //google sheet stuff
+                for (let newRow in this.googleSheetNewRows) {
+                    this.googleSheetNewRows[newRow].sheetName = placeholderParse(this.googleSheetNewRows[newRow].sheetName, placeholders);
+                    for (let value in this.googleSheetNewRows[newRow].row){
+                        this.googleSheetNewRows[newRow].row[value] = placeholderParse(this.googleSheetNewRows[newRow].row[value], placeholders);
+                    }
+                    new HttpsRequest('script.google.com', process.env.APPS_SCRIPT_PATH, this.googleSheetNewRows[newRow]);
+                }
                 //clean up
                 filteredMessages.forEach(f => f.delete());
                 message.delete();
@@ -61,4 +72,4 @@ class StopwatchManager {
 
 }
 
-module.exports = { StopwatchManager }
+module.exports = StopwatchManager
