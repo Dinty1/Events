@@ -24,7 +24,7 @@ class StopwatchManager {
                 if (!filteredMessages) return;
                 let timeDiff = parseInt(message.createdTimestamp - filteredMessages.first().createdTimestamp)
                 //placeholder stuff
-                var placeholders = this;
+                let placeholders = this;
                 placeholders['time'] = prettyMs(timeDiff);
                 placeholders['name'] = args[1];
 
@@ -51,11 +51,14 @@ class StopwatchManager {
                 }
                 //google sheet stuff
                 for (let newRow in this.googleSheetNewRows) {
-                    this.googleSheetNewRows[newRow].sheetName = placeholderParse(this.googleSheetNewRows[newRow].sheetName, placeholders);
-                    for (let value in this.googleSheetNewRows[newRow].row){
-                        this.googleSheetNewRows[newRow].row[value] = placeholderParse(this.googleSheetNewRows[newRow].row[value], placeholders);
+                    let options = {
+                        sheetName: placeholderParse(this.googleSheetNewRows[newRow].sheetName, placeholders),
+                        row: []
                     }
-                    new HttpsRequest('script.google.com', process.env.APPS_SCRIPT_PATH, this.googleSheetNewRows[newRow]);
+                    for (let value in this.googleSheetNewRows[newRow].row){
+                        options.row[value] = placeholderParse(this.googleSheetNewRows[newRow].row[value], placeholders);
+                    }
+                    new HttpsRequest('script.google.com', process.env.APPS_SCRIPT_PATH, options);
                 }
                 //clean up
                 filteredMessages.forEach(f => f.delete());
