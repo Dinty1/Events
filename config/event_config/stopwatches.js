@@ -18,7 +18,7 @@ module.exports = [
             }
         ],
         minecraftResultCommands: [//minecraft commands to run via the discord console
-            'bc %name% just completed the challenge %friendlyName% with a time of %time%',
+            'tellraw %name% {"text":"Congratulations, you just completed the challenge %friendlyName% with a time of %time%!","color":"green"}',
             'spawn %name%',
         ],
         googleSheetNewRows: [//rows to add to the google spreadsheet
