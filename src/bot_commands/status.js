@@ -34,7 +34,7 @@ module.exports = {
                                 inline: true
                             },
                         ])
-                    message.channel.send(embed)
+                    message.channel.send(embed).catch(err => message.channel.send(`Oops something went wrong: \`\`\`${err}\`\`\``))
 
                 }
             })
