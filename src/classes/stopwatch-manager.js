@@ -5,7 +5,6 @@ const placeholderParse = require('../utils/parse-placeholders');
 const HttpsRequest = require("./https-request");
 require('dotenv').config()
 
-
 class StopwatchManager {
     constructor(options) {
         for (let option in options) {
@@ -14,6 +13,12 @@ class StopwatchManager {
         this.constructor.stopwatches[this.id] = this;
         console.log(`Successfully registered stopwatch ${this.id}`)
     }
+    /**
+     * 
+     * @param {string} instruction 
+     * @param {Object} discordClient 
+     * @param {Object} message 
+     */
     async instruct(instruction, discordClient, message) {
         let args = instruction.split(' ');
         if (!args[1]) return;
@@ -55,7 +60,7 @@ class StopwatchManager {
                         sheetName: placeholderParse(this.googleSheetNewRows[newRow].sheetName, placeholders),
                         row: []
                     }
-                    for (let value in this.googleSheetNewRows[newRow].row){
+                    for (let value in this.googleSheetNewRows[newRow].row) {
                         options.row[value] = placeholderParse(this.googleSheetNewRows[newRow].row[value], placeholders);
                     }
                     new HttpsRequest('script.google.com', process.env.APPS_SCRIPT_PATH, options);
