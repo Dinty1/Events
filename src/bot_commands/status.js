@@ -24,14 +24,23 @@ module.exports = {
                         .setTitle('The server is online!')
                         .addFields([
                             {
+                                name: 'Address',
+                                value: server.host,
+                                inline: true
+                            },
+                            {
+                                name: 'DynIP',
+                                value: `${server.srvRecord.host}:${server.srvRecord.port}`,
+                                inline: true
+                            },
+                            {
                                 name: 'Version',
                                 value: server.version,
                                 inline: true
                             },
                             {
                                 name: `Online players (${server.onlinePlayers}/${server.maxPlayers})`,
-                                value: onlinePlayers,
-                                inline: true
+                                value: onlinePlayers
                             },
                         ])
                     message.channel.send(embed).catch(err => message.channel.send(`Oops something went wrong: \`\`\`${err}\`\`\``))
