@@ -17,7 +17,8 @@ class StopwatchManager {
      * 
      * @param {string} instruction 
      * @param {Object} discordClient 
-     * @param {Object} message 
+     * @param {Object} message
+     * @returns {void}
      */
     async instruct(instruction, discordClient, message) {
         let args = instruction.split(' ');

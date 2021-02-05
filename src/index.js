@@ -8,6 +8,8 @@ discordClient.login(process.env.TOKEN);
 
 //internal imports
 const StopwatchManager = require('./classes/stopwatch-manager');
+const ScoreManager = require('./classes/score-manager');
+
 const config = require('../config/config')
 discordClient.config = config;
 
@@ -35,9 +37,7 @@ discordClient.on('message', async message => {
     if(message.content.startsWith(config.commandPrefix)) {
         try {
             discordClient.commands.get(args[0].slice(1)).execute(discordClient, message, args);
-        } catch (err) {
-            
-        }
+        } catch (err) {}
     }
     //inter-bot communication
     if (!message.author.bot) return;
