@@ -9,19 +9,19 @@ class ScoreManager {
         this.name = name;
         this.sheetName = sheetName;
         this.scores = {};
-        if (this.constructor.scoreBoards[name]) throw new Error('A scoreboard by that name is already registered');
-        this.constructor.scoreBoards[name] = this;
+        if (this.constructor.scoreboards[name]) throw new Error('A scoreboard by that name is already registered');
+        this.constructor.scoreboards[name] = this;
     }
-    static scoreBoards = {
+    static scoreboards = {
         /**
          * 
-         * @param {string} scoreBoardName 
+         * @param {string} scoreboardName 
          * @returns {object}
          */
-        get: async (scoreBoardName) => {
-            if (!scoreBoardName) throw new Error('M8 seriously how do you expect me to find a scoreboard without giving a name?')
-            if (!this.scoreBoards[scoreBoardName]) throw new Error('Couldn\'t find that scoreboard.');
-            return this.scoreBoards[scoreBoardName];
+        get: async (scoreboardName) => {
+            if (!scoreboardName) throw new Error('M8 seriously how do you expect me to find a scoreboard without giving a name?')
+            if (!this.scoreboards[scoreboardName]) throw new Error('Couldn\'t find that scoreboard.');
+            return this.scoreboards[scoreboardName];
         }
     };
     /**
@@ -36,7 +36,7 @@ class ScoreManager {
             this.scores[player] = 0;
         }
         this.scores[player] += change;
-        const HttpsRequest = require('./https-request');
+        const httpsRequest = require('../utils/https-request');
     }
     /**
      * 

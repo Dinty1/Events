@@ -9,14 +9,21 @@ discordClient.login(process.env.TOKEN);
 //internal imports
 const StopwatchManager = require('./classes/stopwatch-manager');
 const ScoreManager = require('./classes/score-manager');
+const LeaderboardManager = require('./classes/leaderboard-manager');
 
 const config = require('../config/config')
 discordClient.config = config;
 
 //register stopwatches
 const stopwatches = require('../config/event_config/stopwatches');
-for (let stopwatch in stopwatches) {
-    new StopwatchManager(stopwatches[stopwatch]);
+for (const stopwatch of stopwatches) {
+    new StopwatchManager(stopwatch);
+}
+
+//register leaderboards
+const leaderboards = require('../config/event_config/leaderboards');
+for (const leaderboard of leaderboards) {
+    new LeaderboardManager(leaderboard);
 }
 
 //register bot commands
@@ -49,5 +56,6 @@ discordClient.on('message', async message => {
             } catch (error) {
                 message.channel.send('Invalid command')
             }
+            break;
     }
 })

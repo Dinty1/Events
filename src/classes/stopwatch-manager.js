@@ -2,8 +2,9 @@ const config = require("../../config/config");
 const DiscordMessage = require('./discord-message');
 const prettyMs = require('pretty-ms')
 const placeholderParse = require('../utils/parse-placeholders');
-const HttpsRequest = require("./https-request");
+const httpsRequest = require("../utils/https-request");
 require('dotenv').config()
+const LeaderboardManager = require('./leaderboard-manager')
 
 class StopwatchManager {
     constructor(options) {
@@ -66,11 +67,15 @@ class StopwatchManager {
                     for (let value in this.googleSheetNewRows[newRow].row) {
                         options.row[value] = placeholderParse(this.googleSheetNewRows[newRow].row[value], placeholders);
                     }
-                    new HttpsRequest('script.google.com', process.env.APPS_SCRIPT_PATH, options);
+                    await httpsRequest('script.google.com', process.env.APPS_SCRIPT_PATH, options);
                 }
                 //clean up
                 filteredMessages.forEach(f => f.delete());
                 message.delete();
+                //refresh associated scoreboard
+                if(this.leaderboard) {
+                    LeaderboardManager.leaderboards.get(this.leaderboard).update(discordClient)
+                }
                 break;
         }
     }

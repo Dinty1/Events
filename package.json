@@ -20,7 +20,7 @@
   "dependencies": {
     "discord.js": "^12.5.1",
     "dotenv": "^8.2.0",
-    "https": "^1.0.0",
+    "follow-redirects": "^1.13.2",
     "minecraft-server-util": "^3.4.2",
     "pretty-ms": "^7.0.1"
   }
