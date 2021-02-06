@@ -33,6 +33,7 @@ class StopwatchManager {
                 let placeholders = this;
                 placeholders['time'] = prettyMs(timeDiff);
                 placeholders['name'] = args[1];
+                placeholders['ms'] = timeDiff;
 
                 //commands
                 for (let command in this.minecraftResultCommands) {
@@ -58,6 +59,7 @@ class StopwatchManager {
                 //google sheet stuff
                 for (let newRow in this.googleSheetNewRows) {
                     let options = {
+                        action: 'appendRow',
                         sheetName: placeholderParse(this.googleSheetNewRows[newRow].sheetName, placeholders),
                         row: []
                     }

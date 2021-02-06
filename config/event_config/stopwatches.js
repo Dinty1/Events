@@ -3,7 +3,7 @@ module.exports = [
     //anything within [] can have more than one value, but don't forget to separate with a comma
     //you can create multiple stopwatches by copy-pasting the below object
     //available placeholders (surround with %):
-    //id, friendlyName, time, name (playername)
+    //id, friendlyName, time, name (playername), ms
     //command block configuration:
     //start: /discord bcast #bot-chat stopwatch <id> start @p
     //end: /discord bcast #bot-chat stopwatch <id> stop @p
@@ -24,12 +24,8 @@ module.exports = [
         googleSheetNewRows: [//rows to add to the google spreadsheet
             {
                 sheetName: 'Parkour',//sheet name - case sensitive!
-                row: ['%name%', '%time%']//going across, the cells in the sheet
+                row: ['%name%', '%time%', "%ms%"]//going across, the cells in the sheet
             },
-            {
-                sheetName: '%name%',
-                row: ['%friendlyName%', '%time%']
-            }
         ]
     },
   
