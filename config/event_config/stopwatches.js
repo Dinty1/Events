@@ -23,7 +23,7 @@ module.exports = [
         ],
         googleSheetNewRows: [//rows to add to the google spreadsheet
             {
-                sheetName: 'Parkour',//sheet name - case sensitive!
+                sheetName: 'Example Parkour',//sheet name - case sensitive!
                 row: ['%name%', '%time%', "%ms%"]//going across, the cells in the sheet
             },
         ],
