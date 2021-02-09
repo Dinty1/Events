@@ -70,8 +70,8 @@ class StopwatchManager {
                     await httpsRequest('script.google.com', process.env.APPS_SCRIPT_PATH, options);
                 }
                 //clean up
-                filteredMessages.forEach(f => f.delete());
-                message.delete();
+                await filteredMessages.forEach(f => f.delete());
+                await message.delete();
                 //refresh associated scoreboard
                 if(this.leaderboard) {
                     LeaderboardManager.leaderboards.get(this.leaderboard).update(discordClient)
