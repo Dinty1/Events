@@ -12,5 +12,12 @@ module.exports = [
         topNumbers: 5,
         scoreFormat: '&c%place%. &a%name% (%time%)',
         holoName: 'parkourlb'
+    },
+    {
+        id: 'iceboat',
+        sheetName: 'Ice Boat',
+        topNumbers: 5,
+        scoreFormat: '&c%place%. &a%name% (%time%)',
+        holoName: 'boatleaderboard'
     }
 ]
