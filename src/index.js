@@ -16,7 +16,6 @@ discordClient.login(process.env.TOKEN);
 
 //internal imports
 const StopwatchManager = require('./classes/stopwatch-manager');
-const ScoreManager = require('./classes/score-manager');
 const LeaderboardManager = require('./classes/leaderboard-manager');
 
 const config = require('../config/config')
@@ -45,6 +44,8 @@ for(let file of botCommands){
 
 discordClient.on('ready', () => {
     console.log('Discord client logged in');
+    const statusUpdate = require('./utils/status-update');
+    statusUpdate(discordClient);
 })
 
 discordClient.on('message', async message => {
