@@ -62,5 +62,21 @@ module.exports = [
         ],
         leaderboard: 'iceboat'//the leaderboard to refresh when the timer is stopped
     },
+
+    {
+        id: 'MINIGAMES_MAZE',//the id that you'll use for all your command blocks
+        friendlyName: 'Maze',//friendly name that the challenge is known by
+        discordResultMessages: [],
+        minecraftResultCommands: [//minecraft commands to run via the discord console
+            'tellraw %name% {"text":"Congratulations, you just completed the challenge %friendlyName% with a time of %time%! See your name on the leaderboard?","color":"green"}',
+        ],
+        googleSheetNewRows: [//rows to add to the google spreadsheet
+            {
+                sheetName: 'Maze',//sheet name - case sensitive!
+                row: ['%name%', '%time%', "%ms%"]//going across, the cells in the sheet
+            },
+        ],
+        leaderboard: 'maze'//the leaderboard to refresh when the timer is stopped
+    },
   
 ]

@@ -19,5 +19,12 @@ module.exports = [
         topNumbers: 5,
         scoreFormat: '&c%place%. &a%name% (%time%)',
         holoName: 'boatleaderboard'
+    },
+    {
+        id: 'maze',
+        sheetName: 'Maze',
+        topNumbers: 5,
+        scoreFormat: '&c%place%. &a%name% (%time%)',
+        holoName: 'mazeleaderboard'
     }
 ]
