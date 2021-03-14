@@ -73,7 +73,7 @@ class StopwatchManager {
                 await filteredMessages.forEach(f => f.delete());
                 await message.delete();
                 //refresh associated scoreboard
-                if(this.leaderboard) {
+                if(this.leaderboard && this.leaderboard != "") {
                     LeaderboardManager.leaderboards.get(this.leaderboard).update(discordClient)
                 }
                 break;

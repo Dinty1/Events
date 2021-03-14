@@ -78,5 +78,26 @@ module.exports = [
         ],
         leaderboard: 'maze'//the leaderboard to refresh when the timer is stopped
     },
+
+    {
+        id: 'Climbing',//the id that you'll use for all your command blocks
+        friendlyName: 'Climbing',//friendly name that the challenge is known by
+        discordResultMessages: [
+            {
+                channelName: "%name%-private",
+                content: "Wipeout add stuff"
+            }
+        ],
+        minecraftResultCommands: [//minecraft commands to run via the discord console
+            'tellraw %name% {"text":"Congratulations, you just completed the challenge %friendlyName% with a time of %time%!","color":"green"}',
+        ],
+        googleSheetNewRows: [//rows to add to the google spreadsheet
+            {
+                sheetName: 'Climbing',//sheet name - case sensitive!
+                row: ['%name%', '%time%', "%ms%"]//going across, the cells in the sheet
+            },
+        ],
+        leaderboard: ''//the leaderboard to refresh when the timer is stopped
+    },
   
 ]
