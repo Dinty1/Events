@@ -99,5 +99,26 @@ module.exports = [
         ],
         leaderboard: ''//the leaderboard to refresh when the timer is stopped
     },
+
+    {
+        id: 'Reaction',//the id that you'll use for all your command blocks
+        friendlyName: 'Reaction',//friendly name that the challenge is known by
+        discordResultMessages: [
+            {
+                channelName: "%name%-private",
+                content: "Wipeout add stuff"
+            }
+        ],
+        minecraftResultCommands: [//minecraft commands to run via the discord console
+            'tellraw %name% {"text":"Congratulations, you just completed the challenge %friendlyName% with a time of %time%!","color":"green"}',
+        ],
+        googleSheetNewRows: [//rows to add to the google spreadsheet
+            {
+                sheetName: 'Reaction',//sheet name - case sensitive!
+                row: ['%name%', '%time%', "%ms%"]//going across, the cells in the sheet
+            },
+        ],
+        leaderboard: ''//the leaderboard to refresh when the timer is stopped
+    },
   
 ]
