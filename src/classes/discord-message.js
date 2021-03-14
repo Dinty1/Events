@@ -9,7 +9,7 @@ class DiscordMessage {
         this.newMessage(discordClient, channelID, content)
     }
     async newMessage(discordClient, channelID, content) {
-        let msg = await discordClient.channels.cache.get(channelID).send(content);
+        let msg = await discordClient.channels.cache.get(channelID).send(content).catch(err => {});
         return msg;
     }
 }
