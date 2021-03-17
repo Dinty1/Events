@@ -85,11 +85,11 @@ module.exports = [
         discordResultMessages: [
             {
                 channelName: "%name%-private",
-                content: "Wipeout add stuff"
+                content: "You have just completed the %friendlyName% task with a time of %time%. Continue making the IFFD proud!"
             }
         ],
         minecraftResultCommands: [//minecraft commands to run via the discord console
-            'tellraw %name% {"text":"Congratulations, you just completed the challenge %friendlyName% with a time of %time%!","color":"green"}',
+            'tellraw %name% {"text":"You just completed the %friendlyName% task with a time of %time%", continue doing the IFFD good and you will prosper, participant.","color":"green"}',
         ],
         googleSheetNewRows: [//rows to add to the google spreadsheet
             {
@@ -106,11 +106,11 @@ module.exports = [
         discordResultMessages: [
             {
                 channelName: "%name%-private",
-                content: "Wipeout add stuff"
+                content: "You have just completed the %friendlyName% task with a time of %time%. Continue making the IFFD proud!"
             }
         ],
         minecraftResultCommands: [//minecraft commands to run via the discord console
-            'tellraw %name% {"text":"Congratulations, you just completed the challenge %friendlyName% with a time of %time%!","color":"green"}',
+            'tellraw %name% {"text":"You just completed the %friendlyName% task with a time of %time%", continue doing the IFFD good and you will prosper, participant.","color":"green"}',
         ],
         googleSheetNewRows: [//rows to add to the google spreadsheet
             {
@@ -127,11 +127,11 @@ module.exports = [
         discordResultMessages: [
             {
                 channelName: "%name%-private",
-                content: "Wipeout add stuff"
+                content: "You have just completed the %friendlyName% task with a time of %time%. Continue making the IFFD proud!"
             }
         ],
         minecraftResultCommands: [//minecraft commands to run via the discord console
-            'tellraw %name% {"text":"Congratulations, you just completed the challenge %friendlyName% with a time of %time%!","color":"green"}',
+            'tellraw %name% {"text":"You just completed the %friendlyName% task with a time of %time%", continue doing the IFFD good and you will prosper, participant.","color":"green"}'
         ],
         googleSheetNewRows: [//rows to add to the google spreadsheet
             {
