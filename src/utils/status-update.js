@@ -10,7 +10,7 @@ module.exports = (client) => {
                 if (server.maxPlayers < 1 || !server.maxPlayers) {//if the server is offline
                     let embed = new Discord.MessageEmbed()
                         .setTitle('The server is offline :(')
-                        .setDescription('Ask Wipeout or Dinty to start it for you.')
+                        .setDescription('DM Wipeout or Dinty if you\'d like access to start the server.')
                     const message = await client.channels.cache.get(client.config.infoChannel).messages.fetch(client.config.infoMessage)
                     const date = new Date()
                     await message.edit(embed)
